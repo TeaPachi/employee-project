@@ -57,13 +57,20 @@
   }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
   }
   
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #c5cddb;
   }
 
+  .email {
+    padding-left: 4%;
+  }
+
+  .inputs {
+    margin-left: 2.4em;
+  }
 
