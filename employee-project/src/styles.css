@@ -22,3 +22,14 @@ h1 {
       height: 20%;
   }
    */
+
+   .svg-inline--fa {
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(55, 108, 139);
+  }
+
+  .icon{
+    background-color: transparent;
+    border: none;
+  }

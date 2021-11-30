@@ -19,19 +19,31 @@
     <li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee"
     (click)="onSelect(employee)">
         <span class="badge">{{employee.id}}</span> {{employee.fname}} {{employee.lname}}
+        <input type="checkbox" class="checkbox">
     </li>
 </ul>
 
 <div *ngIf="selectedEmployee">
 
 <h2>{{selectedEmployee.fname | uppercase}} {{selectedEmployee.lname | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedEmployee.id}}</div>
-  <div>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Date of birth</th>
+        <th>Salary</th>
+    </tr>
+    <tr>
+        <td>{{selectedEmployee.id}}</td>
+        <td>{{selectedEmployee.dateofbirth}}</td>
+        <td>{{selectedEmployee.salary}}</td>
+    </tr>
+    <br>
+    <label for="employee-email">Employee email: </label>
+    <input class="inputs" id="employee-email" [(ngModel)]="selectedEmployee.email" placeholder="email">
+    <br>
     <label for="employee-fname">Employee first name: </label>
-    <input id="employee-fname" [(ngModel)]="selectedEmployee.fname" placeholder="fname">
+    <input class="inputs" id="employee-fname" [(ngModel)]="selectedEmployee.fname" placeholder="fname">
     <br>
     <label for="employee-lname">Employee last name: </label>
-    <input id="employee-lname" [(ngModel)]="selectedEmployee.lname" placeholder="lname">
-  </div>
+    <input class="inputs" id="employee-lname" [(ngModel)]="selectedEmployee.lname" placeholder="lname">
 
-</div>

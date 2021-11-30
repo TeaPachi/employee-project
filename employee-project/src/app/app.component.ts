@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My Employees List';
-  fname = 'Sasha';
-  lname = 'rockster';
-  date = '21/11/2021'
+  footer = 'all right are reserved to my teacher Alex © ';
+  faTwitter = faTwitter;
+  faWhatsapp = faWhatsapp;
+  faFacebook = faFacebook;
 }
