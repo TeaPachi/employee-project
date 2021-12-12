@@ -3,20 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { TestComponent } from './test/test.component';
+
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './footer/footer.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
-    TestComponent
+    FooterComponent,
+    EmployeeDetailComponent,
+    MessagesComponent,     
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    FontAwesomeModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
