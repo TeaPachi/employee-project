@@ -11,26 +11,21 @@
         <td class="employees">{{employee.dateofbirth}}</td>
         <td class="employees">{{employee.salary}}</td>
         <td class="employees">{{employee.email}}</td>
-    </tr>     
+    </tr>
+    <!-- <tr *ngFor="let employee of employees" class="employees">
+       
+      <td class="employees"><input type="checkbox"></td> 
+      <td class="employees"><a routerLink="/detail/{{employee.id}}">{{employee.id}}</a></td> 
+      <td class="employees"><a routerLink="/detail/{{employee.id}}">{{employee.fname}}</a></td>
+      <td class="employees"><a routerLink="/detail/{{employee.id}}">{{employee.lname}}</a></td>
+      <td class="employees"><a routerLink="/detail/{{employee.id}}">{{employee.dateofbirth}}</a></td>
+      <td class="employees"><a routerLink="/detail/{{employee.id}}">{{employee.salary}}</a></td>
+      <td class="employees"><a routerLink="/detail/{{employee.id}}">{{employee.email}}</a></td>      
+  </tr> -->
 </table>
 </div>
-<!-- <ul class="employees">
-  <li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
-    <span class="badge">{{employee.id}}</span> {{employee.fname}} {{employee.lname}} 
-  </li>
-</ul> -->
+
 
 <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
-
-</div>
-<!-- <div *ngIf="selectedEmployee">
-  <h2>{{selectedEmployee.fname | uppercase}} {{selectedEmployee.lname | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedEmployee.id}}</div>
-  <div>
-    <label for="employee-fname">Employee first name: </label>
-    <input id="employee-fname" [(ngModel)]="selectedEmployee.fname" placeholder="fname">
-    <br>
-    <label for="employee-lname">Employee last name: </label>
-    <input id="employee-lname" [(ngModel)]="selectedEmployee.lname" placeholder="lname">
-  </div>
-</div> -->
+<div> <app-sendmail [employee]="selectedEmployee"></app-sendmail> </div>
+</div> 

@@ -13,12 +13,17 @@
       
       <label for="employee-salary">Salary: </label>
       <input id="employee-salary" [(ngModel)]="employee.salary" placeholder="salary">
-    
-      <label for="employee-salary">E-mail: </label>
-      <a href="mailto:{{employee.email}}" >{{employee.email}}</a>
+      <form method="get">
+        <label for="employee-salary">E-mail: </label>
+        <input id="employee-email" [(ngModel)]="employee.email" placeholder="email" type="email">
+        <button type="submit" (click)="sendMail()">Send email</button>
+      <!-- <a href="mailto:{{employee.email}}" >{{employee.email}}</a> -->
+    </form>
     </div>
     
     </div>
-    
+    <button (click)="goBack()">Go back</button>
+    <!-- <button (click)="save()">save</button> -->
+    <app-sendmail></app-sendmail>
   </div>
     <br>

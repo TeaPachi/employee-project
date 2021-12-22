@@ -1,15 +1,16 @@
 
 <h1>{{title}}</h1>
-<p>Welcome to our company!</p>
-<!-- <ol>
-  <li>{{fname}}</li>
-  <li>{{fname}} but cooler</li>
-  <li>{{date}}</li>
-</ol> -->
+<nav>
+  <a routerLink="/home">Home</a>
+  <a routerLink="/employees">List of employees</a>
+  <a routerLink="/employees-routing">Employees routing</a>
+  <!-- routerLink = link binding, it makes it so you dont have to have an <a></a> element for it to
+  be a link to another page -->
+  <a routerLink="/dashboard">Dashboard</a>
+</nav>
 
-
-
-<app-employees></app-employees>
+<!-- <app-employees></app-employees> -->
+<router-outlet></router-outlet>
 <app-messages></app-messages>
 <app-footer></app-footer>
 

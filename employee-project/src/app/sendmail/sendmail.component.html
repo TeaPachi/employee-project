@@ -1,0 +1,27 @@
+
+<!-- 
+<div *ngFor="let employee of employees" class="employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">     
+    <h2>Sending E-mail to: {{employee.fname}}</h2>
+</div>  -->
+<div *ngIf="employee" >
+    <div class="visitcard hidden" id="email-comp">
+      <h2>Sending E-mail to: {{employee.fname | uppercase}} {{employee.lname | uppercase}}</h2>    
+    <div class="form">
+      <label for="employee-address">To: </label>
+      <input id="employee-address" placeholder="to">
+      
+      <label for="employee-copy">Cc: </label>
+      <input id="employee-copy" placeholder="cc">
+          
+      <label for="employee-subject">Subject: </label>
+      <input id="employee-subject"  placeholder="subject">
+
+      <label for="message-content">My message: </label>
+      <textarea id="message-content" name="message-content" rows="4" cols="50"></textarea>
+      <button class="wide-btn">SEND</button>
+    </div>
+    
+    </div>
+    
+  </div>
+    <br>

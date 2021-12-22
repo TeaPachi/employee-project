@@ -10,6 +10,8 @@ input {
   padding: 0.5em 1.3em 0.5em 1.3em;
   height: max-content;
   width: max-content;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 h2{
@@ -21,7 +23,7 @@ h2{
 .form{
   display  : grid;
   grid-gap : 10px;
-  grid-template-columns : auto auto;  
+  grid-template-columns: 160px 250px;
   align-items: center;
   justify-items: stretch;
 }
@@ -30,28 +32,10 @@ label {
   font-weight: 700;
 }
 
-#employee-email {
-  width: 100px;
+button.wide-btn {
+  grid-column-start: 2;
 }
 
-button {
-  color: #333;
-  background-color: #eee;
-  margin-bottom: 12px;
-  padding: 0.7rem;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-button:hover {
-  color: #db0e0e;
-  background-color: #d8d2d2;
-}
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
-}
-
-.hidden {
+/* .hidden {
   display: none;
-}
+} */

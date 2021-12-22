@@ -3,6 +3,9 @@ import { Employee } from './employee';
 import { EMPLOYEES } from './list-employees';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +13,49 @@ import { MessageService } from './message.service';
 export class EmployeeService {
 
   getEmployees(): Observable<Employee[]> {
-    const employees = of(EMPLOYEES);
-    this.messageService.add('Employee Service message: all employee were updated!');
-    return employees;
+    //const employees = of(EMPLOYEES);    
+    //return employees;
+    this.messageService.add('Employee Service message: all employees were updated!');
+    return this.http.get<Employee[]>(this.employeesUrl)
+      .pipe(
+        tap(_ => this.log('fetched employees')),
+        catchError(this.handleError<Employee[]>('getEmployees', []))
+    );
   }
 
-  constructor(private messageService: MessageService) { }
+
+  getEmployee(id: number): Observable<Employee> {   
+    //const employee = EMPLOYEES.find(h => h.id === id)!;
+     //return of(employee);
+    this.messageService.add(`Employee Service: fetched employee id=${id}`);
+    const url = `${this.employeesUrl}/${id}`; //get url of employee
+    return this.http.get<Employee>(url).pipe(
+      tap(_ => this.log(`fetched employee id=${id}`)),
+      catchError(this.handleError<Employee>(`getEmployee id=${id}`))
+  );
+    }
+
+  private log(message: string) {
+    this.messageService.add(`Employee Service: ${message}`);
+  }
+
+  private employeesUrl = 'api/employees';  // URL to web api
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+  
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+  
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+  
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+  
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
 }
